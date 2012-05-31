@@ -1,0 +1,42 @@
+h1. Archive
+
+This database provides the proper information structure to allow for proper archival organization of events-based items.
+
+h2. Special entries
+
+One event, with @id = 0, name = "General"@, would always exist to allow for the addition of collections which do not belong to an event.
+
+h2. Relationships
+
+* @Collection@ belongTo @Event@
+* @Item@ belongTo @Collection@
+
+h2. Database Tables
+
+h3. Collection
+
+| field | type | description |
+| @id@ | @INT(11), unsigned@ |  |
+| @name@ | @VARCHAR(255)@ | name of the collection |
+| @contact_person@ | @VARCHAR(255)@ | contact-person for collection. can be used to retrieve further information. |
+| @event_id@ | @INT(11), unsigned@ | id of event to which the collection belongs |
+
+h3. Event
+
+| field | type | description |
+| @id@ | @INT(11), unsigned@ |  |
+| @name@ | @VARCHAR(255)@ | name of event |
+| @datetime@ | @DATETIME@ | datetime the event occurred |
+| @city@ | @VARCHAR(255)@ | city in which event occurred |
+| @state@ | @VARCHAR(255)@ | state in which event occurred |
+
+h3. Item
+
+| field | type | description |
+| @id@ | @INT(11), unsigned@ |  |
+| @type@ | @ENUM(photo,video,audio,document)@ | type of the upload |
+| @year@ | @YEAR@ | year the item was _created_ |
+| @month@ | @INT(2)@ | month the item was _created_ |
+| @day@ | @INT(2)@ | day the item was _created_ |
+| @credit@ | @VARCHAR(255)@ | person or entity to whom credit for the creation of the item belongs |
+| @collection_id@ | @INT(11), unsigned@ | id of the collection, used in a @belongsTo@ relationship |
