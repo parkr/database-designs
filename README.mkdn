@@ -1,0 +1,15 @@
+# Database designs
+
+### By Parker Moore
+
+This repository is a collection of database designs which I have created
+to accomplish certain objectives. They range from very complicated
+manipulation of extremely normalized data to very simple two-table
+websites which require very little normalization.
+
+Please feel free to peruse, but know that in doing so, you agree to cite
+me and the file you found the information in if you share this repo or
+the contents within. If you share, cite with appropriate links and
+attributions to all of my work.
+
+Enjoy!
