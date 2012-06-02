@@ -35,6 +35,7 @@ h3. Item
 | field | type | description |
 | @id@ | @INT(11), unsigned@ |  |
 | @type@ | @ENUM(photo,video,audio,document)@ | type of the upload |
+| @description@ | @TEXT@ | text description of what the item is |
 | @year@ | @YEAR@ | year the item was _created_ |
 | @month@ | @INT(2)@ | month the item was _created_ |
 | @day@ | @INT(2)@ | day the item was _created_ |
