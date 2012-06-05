@@ -1,0 +1,38 @@
+h1. House Management
+
+This database provides the proper information structure to run a house management application for a house of many people.
+
+h2. Relationships
+
+* @Expense@ belongTo @HouseMate@
+* @Expense@ belongTo @Category@
+* @Payment@ belongTo @Expense@
+* @HouseMate@ hasAndBelongsToMany @Payment@
+
+h2. Data Models
+
+h3. Expense
+
+| field | type | description |
+| @id@ | @INT(11), unsigned@ |  |
+| @date@ | @DATE@ | date upon which the purchase occurred |
+| @amount@ | @DECIMAL(10,2)@ | the amount of the transaction |
+| @description@ | @TEXT@ | description of the purchase: what was purchased and why |
+| @house_mate_id@ | @INT(11), unsigned@ | id of HouseMate by which the expense was initially paid |
+| @category_id@ | @INT(11), unsigned@ | id of Category to which thise expense pertains |
+
+h3. HouseMate
+
+| field | type | description |
+| @id@ | @INT(11), unsigned@ |  |
+| @name@ | @VARCHAR(255)@ | name of house mate |
+| @email@ | @VARCHAR(255)@ | email address at which the house mate can be contacted |
+| @phone_number@ | @VARCHAR(255)@ | phone number at which the house mate can be contacted |
+
+h3. Payment
+
+| field | type | description |
+| @id@ | @INT(11), unsigned@ |  |
+| @amount@ | @DECIMAL(10,2)@ | amount of the payment; must be <= Expense.amount |
+| @is_paid@ | @BOOL@ | whether payment has been rendered to HouseMate to which Expense belongs |
+| @expense_id@ | @INT(11), unsigned@ | expense to which payment belongs |
